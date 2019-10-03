@@ -1,0 +1,22 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"
+    h1="{% static 'polls/style.css' %}">
+<h1>
+    <font size="+4">The landing page for my polls app</font>
+</h1>
+
+{% if latest_question_list %}
+<ul>
+    {% for question in latest_question_list %}
+    <li><a href="{% url 'polls:detail' question.id %}">
+            <font size="+3">{{ question.question_text }}</font>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>
+    <font size="+3">No polls are available.</font>
+</p>
+{% endif %}
