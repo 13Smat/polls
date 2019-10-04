@@ -1,21 +1,39 @@
 {% load static %}
+<!doctype html>
+<html>
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"
-    h1="{% static 'polls/style.css' %}">
-<h1>
-    <font size="+4">Polls App</font>
-</h1>
-<title>
-    <font size="+4">Polls App</font>
-</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <style>
+        body {
+            background: #007ACD;
+            color: black;
+            font-size: 30px;
+        }
+
+    </style>
+    {% endblock %}
+</head>
+<h1 align="center">{% block h1 %}{% endblock %}</h1>
+
 
 <body>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
+    <div class="body">
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
     </div>
 </body>
+
+</html>

@@ -1,15 +1,17 @@
 {% extends "polls/base.html" %}
-{% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"
-    h1="{% static 'polls/style.css' %}">
-
+{% block title %}
+Polls Home Page
+{% endblock %}
+{% block h1 %}
+Polls Home Page
+{% endblock %}
 {% block content %}
 {% if latest_question_list %}
 <ul>
     {% for question in latest_question_list %}
-    <li><a href="{% url 'polls:detail' question.id %}">
-            <font size="+3">{{ question.question_text }}</font>
+    <li><a href="{% url 'polls:detail' question.id %}" style="color: black;">
+            <font size="+4">{{ question.question_text }}</font>
         </a>
     </li>
     {% endfor %}
